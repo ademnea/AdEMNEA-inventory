@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class borrow extends Model
+class borrowedtrackableitems extends Model
 {   
-    protected $table = 'borrow';
+    protected $table = "borrowedtrackableitems";
     use HasFactory;
 }

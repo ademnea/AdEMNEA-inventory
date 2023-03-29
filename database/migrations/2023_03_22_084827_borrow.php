@@ -16,6 +16,7 @@ return new class extends Migration
             $table->dateTime('borrowDate');
             $table->dateTime('ExpectedReturnDate');
             $table->string('reason');
+            $table->string('status')->default('not returned');
             $table->string('borrow_image_url');
             $table->timestamps();
         });

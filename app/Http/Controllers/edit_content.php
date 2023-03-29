@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\users;
 use App\Models\item;
+use App\Models\vendors;
 
 
 class edit_content extends Controller
@@ -67,6 +68,23 @@ public function edit_category(Request $request)
             // add more fields as needed
         ]);
     return redirect('/category')->with('updated', 'changes have been made successfully!');
+}
+
+public function edit_vendor(Request $request)
+{
+    $id = $request->id;
+
+    DB::table('vendors')
+        ->where('id', $id)
+        ->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'website' => $request->input('website'),
+            'location' => $request->input('location'),
+            // add more fields as needed
+        ]);
+    return redirect('/vendors')->with('updated', 'changes have been made successfully!');
 }
 
 

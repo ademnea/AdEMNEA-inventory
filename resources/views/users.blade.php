@@ -1,53 +1,38 @@
-
 @include('securitycheck')
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <title>users</title>
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.4/dist/tailwind.min.css">
-        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-
-        <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-
+     <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" >
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.4/dist/tailwind.min.css">
     </head>
     <body>
    
    @include('navbar')
    @include('sidebar')
 
-<div class="p-4 sm:ml-64">
-   <div class="p-4 border-2 border-gray-200 border rounded-lg dark:border-gray-700">
-   {{-- side items  --}}
+   <div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 border-gray-200 border rounded-lg light:border-gray-700">
 
-     <center>
-   {{-- displaying an alert after registering an item --}}
+<center>
+      {{-- displaying an alert after registering a category --}}
          @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('success') }}</b>
-            </div>
+            </div> 
 
         @elseif (session('updated')) 
              <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('updated') }}</b>
-              </div> 
-        @endif
+              </div>
+            @endif
+{{-- start of the page content --}}
 
-<div class="grid grid-cols-2 gap-4">
-    <div>
-  {{-- first column --}}
 <button type="button" id="top" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
 <a href="/register_user">Add New User</a>
 </button>
-    </div>
-    
-    <div>
-    <button type="button" id="top" class="text-white bg-orange-700 hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-orange-600 dark:hover:bg-green-700 dark:focus:ring-orange-800">
-     <a href="/borrow">Lend Item</a>
-    </button>
-    </div> {{-- closes second column --}} 
 
-</div>  {{-- closes entire column wrap div --}}
 </center>
 <br>
 <hr>
@@ -61,15 +46,15 @@ margin-right:10%;
 <br>
 <div class="relative overflow-x-auto">
 
-    <table id="myTable" class="myTable">
+    <table id="myable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
 
-             <th scope="col" class="searchable">
+         <tr>
+             <th scope="col" class="px-6 py-3">
                     ID
                 </th>
 
-                <th scope="col" class="searchable">
+                <th scope="col" class="px-6 py-3">
                     First Name
                 </th>
                
@@ -77,37 +62,42 @@ margin-right:10%;
                     Last Name
                 </th> --}}
 
-                <th scope="col" class="searchable">
+                <th scope="col" class="px-6 py-3">
                     Email
                 </th>
 
-                {{-- <th scope="col" class="px-6 py-3">
-                    Phone
-                </th> --}}
 
-                
-                <th scope="col" class="searchable">
+                <th scope="col" class="px-6 py-3">
                     Status
                 </th>
 
-                <th colspan="3" scope="col" class="px-6 py-3">
-                    Actions
+                <th scope="col" class="px-6 py-3">
+                   Edit
+                </th>
+
+                <th scope="col" class="px-6 py-3">
+                    Delete
+                </th>
+
+                <th scope="col" class="px-6 py-3">
+                    Lend
                 </th>
                 
             </tr>
         </thead>
         <tbody>
 
-        @foreach ($users as $user )
+         @foreach ($users as $user )
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ $user->id }}
-                </th>
-          
+
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ $user->firstname }}
+                  {{ $user->id }}
                 </td>
+          
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ $user->firstname }}
+                </th>
      
                 {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {{ $user->lastname }}
@@ -162,7 +152,7 @@ margin-right:10%;
                     @csrf
                           <input type="hidden" name="user" value="{{ $user->id}}">
                             <button class="text-white bg-orange-700 hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-orange-600 dark:hover:bg-green-700 dark:focus:ring-orange-800">
-                            Lend Item
+                            Lend Items
                             </button>
                     </form>
                 </td>
@@ -173,42 +163,17 @@ margin-right:10%;
     </table>
 </div>
 
-   </div>
+</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script  type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script>
-//this script prompts with a confirmation dialog box before deleting a 
-
-function prompt_user_delete(){
-
-    let result = window.confirm("Are you sure you want to delete this user?");
-
-  if (result) {
-  // user clicked "OK"
-  alert("User deleted successfully!");
-  
-  //piece of code missing here for sending user id for deletion.
-  window.location.href = "/deleteuser? id={{ $user->id}}";
-
-   } else {
-
-  // user clicked "Cancel"
-    alert("Operation Canceled.");
-   }
-
-}
-
+ // let table = new DataTable('#myTable');
+   $(document).ready(function(){
+    $('#myable').DataTable();
+   });
 </script>
-
-        <script>
-        //this script initializes data tables
-       $(document).ready( function () {
-       $('.myTable').DataTable();
-        } );
-        </script>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-{{-- <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script> --}}
- </body>
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    </body>
 </html>

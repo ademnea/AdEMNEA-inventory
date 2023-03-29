@@ -8,6 +8,7 @@ use App\Models\trackableitems;
 use App\Models\users;
 use App\Models\consignments;
 use App\Models\compartments;
+use App\Models\vendors;
 
 class register_category extends Controller
 {
@@ -20,9 +21,10 @@ public function insert_consignment(Request $request){
 //this code uploads the picture from the form.
   $request->validate(['image' => 'required|image|mimes:png,jpg,jpeg|max:2048']);
   $picname = $request->file('image')->getClientOriginalName();
-  $request->image->move(public_path('images'), $picname);
+  $request->image->move(public_path('images/consignments'), $picname);
 
   $mydata = new consignments;
+  $mydata->vendor_id = $request->vendor;
   $mydata->receiptNo = $request->receiptNo;
   $mydata->DateBought = $request->dateBought;
   $mydata->DateReceived = $request->dateReceived;
@@ -61,6 +63,22 @@ return redirect('/compartments')->with('success', $request->number.' '.'has been
         $mydata->save();
 
       return redirect('/category')->with('success','category successfully created!');
+}
+
+ //inserts vendors
+ public function insert_vendor(Request $data){
+        
+  //return $data-> input();
+
+  $mydata = new vendors;
+  $mydata->name = $data->name;
+  $mydata->email = $data->email;
+  $mydata->phone = $data->phone;
+  $mydata->website = $data->website;
+  $mydata->location = $data->location;
+  $mydata->save();
+
+return redirect('/vendors')->with('success','vendor successfully registered!');
 }
 
 

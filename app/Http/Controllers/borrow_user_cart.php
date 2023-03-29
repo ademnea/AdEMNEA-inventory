@@ -33,7 +33,14 @@ $cart = session()->get('cart');
 
 if(is_null($id1) && is_null($id2)){
    // lets add this user to the session.
-   Session::put('user',$userid);
+   $user = DB::table('users')
+   ->where('id',$userid)
+   ->first();
+    $lastname= $user->lastname;
+    Session::put('user',$userid);
+    Session::put('username',$lastname);
+
+
    return redirect('/borrows')->with('success','user added for borrowing');
 } 
 
@@ -142,5 +149,33 @@ return redirect('/borrows')->with('success', 'item added to cart successfully!')
         
     }
 
-    
+
+    public function complete_order(Request $request){
+
+      $borrow_id = $request->input('order');
+
+      //trackable items
+
+      $items = DB::table('borrowedtrackableitems')
+      ->join('trackableitems', 'borrowedtrackableitems.SerialNo', '=', 'trackableitems.SerialNo')
+      ->select('borrowedtrackableitems.*', 'trackableitems.name')
+      ->where('borrowedtrackableitems.borrow_id', $borrow_id)
+      ->where('borrowedtrackableitems.status', 'not returned')
+      ->get();
+
+
+
+//general items
+          $results = DB::table('borrowedgeneralitems')
+          ->join('generalitems', 'borrowedgeneralitems.item_id', '=', 'generalitems.id')
+          ->select('borrowedgeneralitems.*', 'generalitems.name')
+          ->where('borrowedgeneralitems.borrow_id', $borrow_id)
+          ->where('borrowedgeneralitems.status', 'not returned')
+          ->get();
+        //lets first return this as a table on the return page
+
+        return view('/return_items',compact('results','items'));
+
+    }
+  
 }

@@ -22,8 +22,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('Quantity')->default('1');
-            $table->string('trackable')->default('1');
-            $table->boolean('in_stock')->default(true);
             $table->timestamps();
         });
     }

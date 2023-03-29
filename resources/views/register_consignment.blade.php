@@ -40,6 +40,14 @@ margin-right:10%;
                       <input type="text" name="receiptNo" id="" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-green-500 light:focus:border-green-500" placeholder="receipt number" required="true">
                   </div>
 
+                  <label for="vendors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select A Vendor</label>
+                    <select name="vendor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                       {{-- we will use a loop from the database here --}}
+                    @foreach ($vendors as $vendors )  
+                     <option value= "{{ $vendors->id }}"> {{ $vendors->name }} </option>
+                    @endforeach
+                    </select>
+
                   <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date Bought</label>
                      <input type="date" name="dateBought" id="" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-green-500 light:focus:border-green-500" placeholder="date bought" required="true">

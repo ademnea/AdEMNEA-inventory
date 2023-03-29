@@ -5,8 +5,11 @@ use App\Models\item;
 use App\Models\trackableitems;
 use App\Models\category;
 use App\Models\compartments;
+use App\Models\borrowedgeneralitems;
+use App\Models\borrowedtrackableitems;
 use App\Models\users;
 use App\Models\borrow;
+use App\Models\vendors;
 use App\Models\consignments;
 use Illuminate\Http\Request;
 
@@ -47,6 +50,15 @@ class fetch_stuff extends Controller
    
        }
 
+       public function fetch_vendors(){
+
+        $vendors = vendors::all();
+   
+      return view('/vendors',compact('vendors'));
+   
+   
+       }
+
 
 
      // this functions sends categories and items to the items page.
@@ -72,6 +84,13 @@ class fetch_stuff extends Controller
    
        }
 
+       public function fetch_vendor_for_consignment(){
+        
+        $vendors = vendors::all();
+        return view('/register_consignment',compact('vendors'));
+   
+       }
+
 
 
        //function fetches users to their page
@@ -92,6 +111,18 @@ class fetch_stuff extends Controller
 
 
         return view('/borrows',compact('categories','generalitems','trackableitems'));
+   
+       }
+
+
+       public function fetch_orders(){ 
+
+        $orders = borrow::all();
+        $orderestrackableitems = borrowedtrackableitems::all();
+        $orderedgeneralitems = borrowedgeneralitems::all();
+
+
+        return view('/orders',compact('orders','orderestrackableitems','orderedgeneralitems'));
    
        }
 

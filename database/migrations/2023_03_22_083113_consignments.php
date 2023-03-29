@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('Consignments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('vendor_id');
+            $table->foreign('vendor_id')->references('id')->on('vendors');
             $table->string('receiptNo');
             $table->timestamp('DateBought')->nullable();
             $table->timestamp('DateReceived')->nullable();
