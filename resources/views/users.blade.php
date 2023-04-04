@@ -63,7 +63,7 @@ margin-right:10%;
                 </th> --}}
 
                 <th scope="col" class="px-6 py-3">
-                    Email
+                   Contacts
                 </th>
 
 
@@ -104,7 +104,7 @@ margin-right:10%;
                 </td> --}}
 
                  <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ $user->email }}
+                  {{ $user->email }} <br> {{ $user->phone }}
                 </td>
                 
                  <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
