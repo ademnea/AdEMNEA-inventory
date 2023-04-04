@@ -103,10 +103,14 @@ margin-right:5%;
 
                  <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   @if(!empty($order->trackable_items))
-                   <li>{{ $order->trackable_items }}</li>
+                    @foreach (explode(',', $order->trackable_items) as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
                   @endif
                   @if(!empty($order->items))
-                   <li>{{ $order->items }}</li>
+                     @foreach (explode(',', $order->items) as $item)
+                      <li>{{ $item }}</li>
+                     @endforeach
                   @endif
                   </td>
  
