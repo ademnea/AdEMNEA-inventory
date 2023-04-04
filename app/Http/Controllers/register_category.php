@@ -16,7 +16,7 @@ class register_category extends Controller
   //inserts consignments
 public function insert_consignment(Request $request){
         
-  //return $data-> input();
+//return $data-> input();
   
 //this code uploads the picture from the form.
   $request->validate(['image' => 'required|image|mimes:png,jpg,jpeg|max:2048']);
@@ -31,7 +31,7 @@ public function insert_consignment(Request $request){
   $mydata->receipt_image_url = $picname;
   $mydata->save();
 
-return redirect('/consignments')->with('success', $request->receiptNo.' '.'has been registered successfully!');
+return redirect('/consignments')->with('success', 'consignment added successfully!');
 }
 
 
@@ -47,8 +47,6 @@ public function insert_compartment(Request $request){
 
 return redirect('/compartments')->with('success', $request->number.' '.'has been registered successfully!');
 }
-
-
 
 
 

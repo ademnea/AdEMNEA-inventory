@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('BorrowedGeneralItems', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('Users');
             $table->unsignedBigInteger('item_id');
-            $table->foreign('item_id')->references('id')->on('GeneralItems');
+            $table->foreign('item_id')->references('item_id')->on('GeneralItems');
             $table->unsignedBigInteger('borrow_id');
-            $table->foreign('borrow_id')->references('id')->on('Borrow');
+            $table->foreign('borrow_id')->references('borrow_id')->on('Borrow');
             $table->string('quantity');
             $table->string('status')->default("not returned");
             $table->timestamp('ReturnDate')->nullable();

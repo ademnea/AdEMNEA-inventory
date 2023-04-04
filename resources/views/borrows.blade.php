@@ -75,7 +75,7 @@ margin-right:10%;
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                   Qty to lend
+                   Quantity to lend
                 </th>
                 
                 <th scope="col" class="px-6 py-3">
@@ -105,7 +105,7 @@ margin-right:10%;
                 <input type ="text" name="quantity" placeholder="Qty" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-green-500 light:focus:border-green-500" required="true">
                 </td>
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   <input type="hidden" name="item" value="{{ $item->id }}">
+                   <input type="hidden" name="item" value="{{ $item->item_id }}">
                     <button> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -155,24 +155,6 @@ margin-right:10%;
 </div>
 
 <script>
-
-function prompt_item_delete(){
-
-    let result = window.confirm("Are you sure you want to remove this item?");
-
-  if (result) {
-  // user clicked "OK"
-  //alert("item removed successfully!");
-  
-  //piece of code missing here for sending user id for deletion.
-  //window.location.href = "/deletefromcart? id={{ $item['id'] }}";
-
-   } else {
-
-  // user clicked "Cancel"
-    alert("Operation Canceled.");
-   }
-}
 </script>
 <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     </body>

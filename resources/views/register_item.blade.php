@@ -57,7 +57,7 @@ margin-right:10%;
                     <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
                     @foreach ($categories as $categories )  
-                     <option value= "{{ $categories->id }}"> {{ $categories->category_name }} </option>
+                     <option value= "{{ $categories->category_id }}"> {{ $categories->category_name }} </option>
                     @endforeach
                     </select>
 
@@ -67,7 +67,7 @@ margin-right:10%;
                     <select name="consignment" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
                     @foreach ($consignments as $consignment )  
-                     <option value= "{{ $consignment->id }}"> {{ $consignment->receiptNo }} </option>
+                     <option value= "{{ $consignment->consignment_id }}"> {{ $consignment->receiptNo }} </option>
                     @endforeach
                     </select>
 
@@ -77,7 +77,7 @@ margin-right:10%;
                     <select name="compartment" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
                     @foreach ($compartments as $compartment )  
-                     <option value= "{{ $compartment->id }}"> {{ $compartment->number }} </option>
+                     <option value= "{{ $compartment->compartment_id }}"> {{ $compartment->number }} </option>
                     @endforeach
                     </select>
 

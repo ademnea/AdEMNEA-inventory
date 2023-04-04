@@ -45,11 +45,11 @@ class return_items extends Controller
               ->value('quantity');
 
               $remainder_quantity = DB::table('generalitems')
-              ->where('id', $itemId)
+              ->where('item_id', $itemId)
               ->value('quantity');
   
                $new_quantity = $remainder_quantity + $quantity;
-              DB::table('generalitems')->where('id', $itemId)->update(['quantity' => $new_quantity]);
+              DB::table('generalitems')->where('item_id', $itemId)->update(['quantity' => $new_quantity]);
                       
             }
 
@@ -59,7 +59,7 @@ class return_items extends Controller
   
 //         // we will also change the overall order status from Not returned to incomplete, or complete if all has been brought.
 //         // lets first alter the order in borrowed from not returned to incomplete.
-              DB::table('borrow')->where('id', $orderId)->update(['status' => 'incomplete']);
+              DB::table('borrow')->where('borrow_id', $orderId)->update(['borrow_status' => 'incomplete']);
   
   
 //        // lets now check if all order is complete.
@@ -87,11 +87,11 @@ class return_items extends Controller
 
    //check whether all items on this order are returned
       if ($allReturned1 && $allReturned2) {
-          DB::table('borrow')->where('id', $orderId)->update(['status' => 'completed']);
+          DB::table('borrow')->where('borrow_id', $orderId)->update(['borrow_status' => 'completed']);
           return redirect('/orders')->with("success",'this order is now complete');
   
       } else {
-         DB::table('borrow')->where('id', $orderId)->update(['status' => 'incomplete']);
+         DB::table('borrow')->where('borrow_id', $orderId)->update(['borrow_status' => 'incomplete']);
          return redirect('/orders')->with("updated",'items returned successfully');
   
       }

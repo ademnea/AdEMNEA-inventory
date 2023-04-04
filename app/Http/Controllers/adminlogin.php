@@ -24,12 +24,12 @@ class adminlogin extends Controller
          if ($user) {
      // lets put the admin id to the session.
             $admin = DB::table('Admins')
-            ->select('id')
+            ->select('admin_id')
             ->where('username', $username)
             ->first();
             //echo $admin->id;
 
-            Session::put('id',$admin->id);
+            Session::put('id',$admin->admin_id);
             return redirect('/dashboard')->with('greeting','Hello'.' '.$username);
          } else {
              return redirect('/login')->with('Error','Wrong credentials!');

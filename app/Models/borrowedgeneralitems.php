@@ -9,4 +9,10 @@ class borrowedgeneralitems extends Model
 {   
     protected $table = "borrowedgeneralitems";
     use HasFactory;
+
+    public function order()
+{
+    return $this->belongsTo(borrow::class);
+}
+
 }

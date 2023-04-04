@@ -44,7 +44,7 @@ margin-right:10%;
                     <select name="vendor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
                     @foreach ($vendors as $vendors )  
-                     <option value= "{{ $vendors->id }}"> {{ $vendors->name }} </option>
+                     <option value= "{{ $vendors->vendor_id }}"> {{ $vendors->name }} </option>
                     @endforeach
                     </select>
 

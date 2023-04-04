@@ -32,7 +32,7 @@
 
 
 <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-<a href="/register_vendor">Add New Vendor</a>
+<a href="register_vendors">Add New Vendor</a>
 </button>
 
 </center>
@@ -87,7 +87,7 @@ margin-right:10%;
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {{ $vendor->id }}
+                   {{ $vendor->vendor_id }}
                 </td>
           
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -116,7 +116,7 @@ margin-right:10%;
                  
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&description={{ $vendor->email}}&description={{ $vendor->phone}}&description={{ $vendor->website}}&description={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&email={{ $vendor->email}}&phone={{ $vendor->phone}}&website={{ $vendor->website}}&location={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>

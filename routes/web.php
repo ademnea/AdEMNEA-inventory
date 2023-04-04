@@ -37,9 +37,9 @@ Route::view('/edit_vendor_form', "edit_vendor_form");
 Route::view('/register_category', "register_category");
 Route::view('/register_item', "register_item");
 Route::view('/register_user', "register_user");
-Route::view('/register_vendor', "register_vendor");
 Route::view('/register_compartment', "register_compartment");
 Route::view('/register_consignment', "register_consignment");
+Route::view('/register_vendors', "register_vendors");
 
 //security route
 Route::get('logmeout','App\Http\Controllers\adminlogin@logout');
@@ -68,7 +68,7 @@ Route::get('/dashboard', 'App\Http\Controllers\reports@fetch_reports');
 
 //dropdown routes for form select items
 Route::get('/register_item', 'App\Http\Controllers\fetch_stuff@fetch_cat_for_item');
-Route::get('/register_vendor', 'App\Http\Controllers\fetch_stuff@fetch_vendor_for_consignment');
+Route::get('/register_consignment', 'App\Http\Controllers\fetch_stuff@fetch_vendor_for_consignment');
 
 // routes used for updating the database content
 Route::post('/editcategory', 'App\Http\Controllers\edit_content@edit_category');

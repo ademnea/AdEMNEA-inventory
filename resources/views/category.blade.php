@@ -76,7 +76,7 @@ margin-right:10%;
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {{ $category->id }}
+                   {{ $category->category_id }}
                 </td>
           
 
@@ -95,7 +95,7 @@ margin-right:10%;
                  
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_category_form? id={{ $category->id}}&name={{ $category->Category }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/edit_category_form? id={{ $category->category_id}}&name={{ $category->Category }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>

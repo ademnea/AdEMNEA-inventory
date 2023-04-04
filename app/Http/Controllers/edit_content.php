@@ -25,8 +25,8 @@ class edit_content extends Controller
         $picname = $request->file('image')->getClientOriginalName();
         $request->image->move(public_path('images'), $picname);
      
-         DB::table('compartments')
-             ->where('id', $id)
+         DB::table('consignments')
+             ->where('consignment_id', $id)
              ->update([
                  'receiptNo' => $request->input('receiptNo'),
                  'DateBought' => $request->input('dateBought'),
@@ -45,7 +45,7 @@ class edit_content extends Controller
     $id = $request->id;
 
     DB::table('compartments')
-        ->where('id', $id)
+        ->where('compartment_id', $id)
         ->update([
             'number' => $request->input('number'),
             'description' => $request->input('description'),
@@ -61,7 +61,7 @@ public function edit_category(Request $request)
     $id = $request->id;
 
     DB::table('categories')
-        ->where('id', $id)
+        ->where('category_id', $id)
         ->update([
             'Category' => $request->input('category'),
             'description' => $request->input('description'),
@@ -75,7 +75,7 @@ public function edit_vendor(Request $request)
     $id = $request->id;
 
     DB::table('vendors')
-        ->where('id', $id)
+        ->where('vendor_id', $id)
         ->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -93,7 +93,7 @@ public function edit_user(Request $request)
     $id = $request->id;
 
     DB::table('users')
-        ->where('id', $id)
+        ->where('user_id', $id)
         ->update([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -126,7 +126,7 @@ if ($item === null) {
 
         //if id found in general items
         DB::table('generalitems')
-        ->where('id', $id)
+        ->where('item_id', $id)
         ->update([
             'name' => $request->input('name'),
             'type' => $request->input('type'),
@@ -153,7 +153,7 @@ public function user_status(Request $request)
     }
 
     DB::table('users')
-        ->where('id', $id)
+        ->where('user_id', $id)
         ->update([
             'status' => $status,
             // add more fields as needed

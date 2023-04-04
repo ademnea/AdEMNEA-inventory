@@ -11,6 +11,7 @@ use App\Models\users;
 use App\Models\borrow;
 use App\Models\vendors;
 use App\Models\consignments;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class fetch_stuff extends Controller
@@ -63,11 +64,19 @@ class fetch_stuff extends Controller
 
      // this functions sends categories and items to the items page.
        public function fetch_cat_item(){
-        
-        $categories = category::all();
-        $trackableitems = trackableitems::all();
-        $generalitems= item::all();
 
+        //lets use joins to return items and their storages.
+        $generalitems = DB::table('generalitems')
+            ->join('compartments', 'generalitems.compartment_id', '=', 'compartments.compartment_id')
+            ->select('generalitems.*', 'compartments.number as number')
+            ->get();
+
+        $trackableitems = DB::table('trackableitems')
+            ->join('compartments', 'trackableitems.compartment_id', '=', 'compartments.compartment_id')
+            ->select('trackableitems.*', 'compartments.number as number')
+            ->get();
+
+        $categories = category::all();
 
         return view('/items',compact('categories','generalitems','trackableitems'));
    
@@ -99,7 +108,6 @@ class fetch_stuff extends Controller
         $users = users::all();
         return view('/users',compact('users'));
    
-   
        }
 
        //function fetches items to the borrow page.
@@ -116,13 +124,22 @@ class fetch_stuff extends Controller
 
 
        public function fetch_orders(){ 
+        //we will join 4 tables and display who has borrowed which items and what their status is.
 
-        $orders = borrow::all();
-        $orderestrackableitems = borrowedtrackableitems::all();
-        $orderedgeneralitems = borrowedgeneralitems::all();
+            $orders = DB::table('borrow as t1')
+            ->join('users as t2', 't1.user_id', '=', 't2.user_id')
+            ->select(
+                't1.borrow_id',
+                't1.borrow_status',
+                DB::raw('CONCAT(t2.firstname, " ", t2.lastname) AS fullname'),
+                't1.reason',
+                't1.borrowDate',
+                DB::raw('(SELECT GROUP_CONCAT(CONCAT(generalitems.name, " (", borrowedgeneralitems.quantity, ")") SEPARATOR ", ") FROM borrowedgeneralitems JOIN generalitems ON borrowedgeneralitems.item_id = generalitems.item_id WHERE borrowedgeneralitems.borrow_id = t1.borrow_id) AS items'),
+                DB::raw('(SELECT GROUP_CONCAT(trackableitems.name SEPARATOR ", ") FROM borrowedtrackableitems JOIN trackableitems ON borrowedtrackableitems.SerialNo = trackableitems.SerialNo WHERE borrowedtrackableitems.borrow_id = t1.borrow_id) AS trackable_items')
+            )
+            ->get();
 
-
-        return view('/orders',compact('orders','orderestrackableitems','orderedgeneralitems'));
+        return view('/orders',compact('orders'));
    
        }
 

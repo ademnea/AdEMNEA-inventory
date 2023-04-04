@@ -12,9 +12,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Consignments', function (Blueprint $table) {
-            $table->id();
+            $table->id('consignment_id');
             $table->unsignedBigInteger('vendor_id');
-            $table->foreign('vendor_id')->references('id')->on('vendors');
+            $table->foreign('vendor_id')->references('vendor_id')->on('vendors');
             $table->string('receiptNo');
             $table->timestamp('DateBought')->nullable();
             $table->timestamp('DateReceived')->nullable();

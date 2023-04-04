@@ -12,11 +12,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('FaultyGeneralItems', function (Blueprint $table) {
-            $table->id();
+            $table->id('faultygeneral_id');
             $table->unsignedBigInteger('item_id');
-            $table->foreign('item_id')->references('id')->on('GeneralItems');
+            $table->foreign('item_id')->references('item_id')->on('GeneralItems');
             $table->unsignedBigInteger('borrow_id');
-            $table->foreign('borrow_id')->references('id')->on('Borrow');
+            $table->foreign('borrow_id')->references('borrow_id')->on('Borrow');
             $table->string('quantity');
             $table->timestamp('FaultDate');
             $table->string('FaultDescription');

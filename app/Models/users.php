@@ -9,4 +9,10 @@ class users extends Model
 {    
     protected $table = 'users';
     use HasFactory;
+
+    public function orders()
+{
+    return $this->hasMany(borrow::class);
+}
+
 }

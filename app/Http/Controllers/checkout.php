@@ -30,12 +30,20 @@ class checkout extends Controller
   $picname = $request->file('image')->getClientOriginalName();
   $request->image->move(public_path('images/borrowing'), $picname);
 
-    //return $request->input();
+
+   $user = null;
+   // lets get the user from the array
+   foreach ($products as $productData) {
     
+    $user = $productData['user'];
+       break;
+   }
+    //return $request->input();
+
 
     //insert order first.
-    
     $mydata = new borrow;
+    $mydata->user_id = $user;
     $mydata->borrowDate = $currentDateTime;
     $mydata->ExpectedReturnDate = $ExpectedReturnDate;
     $mydata->reason = $Reason;
@@ -43,12 +51,11 @@ class checkout extends Controller
     $mydata->save();
 
  //first querry the orders table for the most recent order to attach these products.
-  $lastOrderId = DB::table('borrow')->latest()->value('id');
+  $lastOrderId = DB::table('borrow')->latest()->value('borrow_id');
 
   // process each product in the cart
   foreach ($products as $productData) {
 
-    $user = $productData['user'];
     $quantity = $productData['quantity'];
     $id = $productData['id'];
 
@@ -56,14 +63,13 @@ class checkout extends Controller
  // Query the first table based on the product ID
  $firstTableItem = trackableitems::where('SerialNo', $id)->first();
  // Query the second table based on the product ID
- $secondTableItem = item::where('id', $id)->first();
+ $secondTableItem = item::where('item_id', $id)->first();
 
  // Check which table the product belongs to
  if ($firstTableItem) {
      // Insert the product into the specific table for the first model
 
      $trackable = new borrowedtrackableitems;
-     $trackable->user_id = $user;
      $trackable->SerialNo = $id;
      $trackable->borrow_id = $lastOrderId;
      $trackable->save();
@@ -77,23 +83,22 @@ class checkout extends Controller
  } elseif ($secondTableItem) {
      // Insert the product into the specific table for the second model
      $generalItem = new borrowedgeneralitems();
-     $generalItem->user_id = $user;
      $generalItem->item_id = $id;
      $generalItem->borrow_id = $lastOrderId;
      $generalItem->quantity = $quantity;
      $generalItem->save();
 
-     //lets now reduce the quantity of the this particular item in stock.
+     //lets now query the previous balance before updating with the new quantity.
          $quantity_in_stock = DB::table('generalitems')
                 ->select('quantity')
-                ->where('id', $id)
+                ->where('item_id', $id)
                 ->value('quantity');
 
           $new_quantity = $quantity_in_stock - $quantity;
 
           //lets now update the stock
           DB::table('generalitems')
-            ->where('id', $id)
+            ->where('item_id', $id)
             ->update(['quantity' => $new_quantity]);
  }
 
@@ -104,7 +109,7 @@ class checkout extends Controller
       Session::forget('user');
       Session::forget('username');
 
-     return redirect('/borrows')->with('success', 'this borrowing has been successfully completed!');
+     return redirect('/borrows')->with('success', 'this borrowing has been successfully completed!. click orders page to view it.');
 
      }
 }

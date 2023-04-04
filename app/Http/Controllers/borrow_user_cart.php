@@ -34,7 +34,7 @@ $cart = session()->get('cart');
 if(is_null($id1) && is_null($id2)){
    // lets add this user to the session.
    $user = DB::table('users')
-   ->where('id',$userid)
+   ->where('user_id',$userid)
    ->first();
     $lastname= $user->lastname;
     Session::put('user',$userid);
@@ -93,8 +93,12 @@ return redirect('/borrows')->with('success', 'item added to cart successfully!')
   
   else if(!is_null($id1) && is_null($id2)){
     $id = $id1;
-    $itemid ="id";
-    $item = item::find($id1);
+    $itemid ="item_id";
+
+    $item = DB::table('generalitems')
+    ->where('item_id',$id1)
+    ->first();
+
     $total_items = $item->Quantity;
 
     
@@ -150,11 +154,13 @@ return redirect('/borrows')->with('success', 'item added to cart successfully!')
     }
 
 
+
+    // this displays the returned items for borrow completion.
     public function complete_order(Request $request){
 
       $borrow_id = $request->input('order');
 
-      //trackable items
+   //trackable items
 
       $items = DB::table('borrowedtrackableitems')
       ->join('trackableitems', 'borrowedtrackableitems.SerialNo', '=', 'trackableitems.SerialNo')
@@ -167,7 +173,7 @@ return redirect('/borrows')->with('success', 'item added to cart successfully!')
 
 //general items
           $results = DB::table('borrowedgeneralitems')
-          ->join('generalitems', 'borrowedgeneralitems.item_id', '=', 'generalitems.id')
+          ->join('generalitems', 'borrowedgeneralitems.item_id', '=', 'generalitems.item_id')
           ->select('borrowedgeneralitems.*', 'generalitems.name')
           ->where('borrowedgeneralitems.borrow_id', $borrow_id)
           ->where('borrowedgeneralitems.status', 'not returned')

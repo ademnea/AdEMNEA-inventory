@@ -12,11 +12,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Borrow', function (Blueprint $table) {
-            $table->id();
+            $table->id('borrow_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('Users');
             $table->dateTime('borrowDate');
             $table->dateTime('ExpectedReturnDate');
             $table->string('reason');
-            $table->string('status')->default('not returned');
+            $table->string('borrow_status')->default('not returned');
             $table->string('borrow_image_url');
             $table->timestamps();
         });

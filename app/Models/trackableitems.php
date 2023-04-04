@@ -10,4 +10,9 @@ class trackableitems extends Model
 
     protected $table = 'trackableitems';
     use HasFactory;
+
+    public function compartments()
+    {
+        return $this->belongsTo(compartments::class);
+    }
 }
