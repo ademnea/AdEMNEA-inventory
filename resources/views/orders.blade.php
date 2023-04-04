@@ -26,7 +26,7 @@
             </div>
 
         @elseif (session('updated')) 
-             <div class="p-4 mb-4 text-sm text-orange-800 rounded-lg bg-orange-50 dark:bg-gray-800 dark:text-orange-400" role="alert">
+             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('updated') }}</b>
               </div> 
         @endif
@@ -36,11 +36,11 @@
 <hr>
 <br>
 <div style="
-margin-left:5%;
-margin-right:5%;
+margin-left:1%;
+margin-right:1%;
 ">
 
-<h5><b>Open Orders</b></h5>
+<h5><b>Orders</b></h5>
 <br>
 <div class="relative overflow-x-auto">
 
@@ -127,9 +127,9 @@ margin-right:5%;
 
               <input type="hidden" name="order" value="{{ $order->borrow_id }}">
                 
-                   <td scope="row" class="px-6 py-4 font-medium text-green-900 whitespace-nowrap">
-                   <button type="submit">
-                        Return
+                   <td scope="row">
+                   <button class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-3 py-2 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                           Return
                    </button>
                     </td>
               </form>

@@ -66,7 +66,6 @@ margin-right:10%;
                    Contacts
                 </th>
 
-
                 <th scope="col" class="px-6 py-3">
                     Status
                 </th>

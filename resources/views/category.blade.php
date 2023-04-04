@@ -95,7 +95,7 @@ margin-right:10%;
                  
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_category_form? id={{ $category->category_id}}&name={{ $category->Category }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/edit_category_form? id={{ $category->category_id}}&name={{ $category->category_name }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>
