@@ -126,19 +126,6 @@ class fetch_stuff extends Controller
        public function fetch_orders(){ 
         //we will join 4 tables and display who has borrowed which items and what their status is.
 
-            // $orders = DB::table('borrow as t1')
-            // ->join('users as t2', 't1.user_id', '=', 't2.user_id')
-            // ->select(
-            //     't1.borrow_id',
-            //     't1.borrow_status',
-            //     DB::raw('CONCAT(t2.firstname, " ", t2.lastname) AS fullname'),
-            //     't1.reason',
-            //     't1.borrowDate',
-            //     DB::raw('(SELECT GROUP_CONCAT(CONCAT(generalitems.name, " (", borrowedgeneralitems.quantity, ")") SEPARATOR ", ") FROM borrowedgeneralitems JOIN generalitems ON borrowedgeneralitems.item_id = generalitems.item_id WHERE borrowedgeneralitems.borrow_id = t1.borrow_id) AS items'),
-            //     DB::raw('(SELECT GROUP_CONCAT(trackableitems.name SEPARATOR ", ") FROM borrowedtrackableitems JOIN trackableitems ON borrowedtrackableitems.SerialNo = trackableitems.SerialNo WHERE borrowedtrackableitems.borrow_id = t1.borrow_id) AS trackable_items')
-            // )
-            // ->get();
-
             $orders = DB::table('borrow as t1')
             ->join('users as t2', 't1.user_id', '=', 't2.user_id')
             ->select(
