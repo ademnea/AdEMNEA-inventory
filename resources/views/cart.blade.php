@@ -144,7 +144,7 @@ function prompt_item_delete(){
   //alert("item removed successfully!");
   
   //piece of code missing here for sending user id for deletion.
-  //window.location.href = "/deletefromcart? id={{ $item['id'] }}";
+    window.location.href = "/deletefromcart? id={{ $item['id'] }}";
 
    } else {
 

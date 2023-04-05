@@ -7,6 +7,20 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+
+
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof \Illuminate\Database\QueryException && strpos($exception->getMessage(), 'foreign key constraint')) {
+        $message = 'Cannot delete user because he or she, has borrowed items.';
+        throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(['error' => $message], 422));
+    }
+
+    return parent::render($request, $exception);
+}
+
+
+
     /**
      * A list of exception types with their corresponding custom log levels.
      *

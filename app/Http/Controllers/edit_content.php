@@ -166,7 +166,10 @@ public function delete_user(Request $request)
 {
     $id = $request->id;
 
-    $entry = users::findOrFail($id);
+    $entry =    DB::table('users')
+    ->where('user_id', $id)
+    ->select();
+    
     $entry->delete();
     return redirect('/users')->with('updated', 'user deleted successfully!');
 }
