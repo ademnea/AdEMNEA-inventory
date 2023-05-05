@@ -165,27 +165,28 @@ margin-right:10%;
 </div>
 </div>
 
-<script>
+@if (isset($user))
+      <script>
+      function prompt_user_delete(){
 
-function prompt_user_delete(){
+        let result = window.confirm("Are you sure you want to delete this user?");
 
-  let result = window.confirm("Are you sure you want to delete this user?");
+        if (result) {
+        // user clicked "OK"
+        
+        //piece of code missing here for sending user id for deletion.
+          window.location.href = "/deleteuser? id={{ $user->user_id}}";
 
-  if (result) {
-  // user clicked "OK"
-  
-  //piece of code missing here for sending user id for deletion.
-    window.location.href = "/deleteuser? id={{ $user->user_id}}";
+        } else {
 
-   } else {
+        // user clicked "Cancel"
+          alert("Operation Canceled.");
+        }
+      }
 
-  // user clicked "Cancel"
-    alert("Operation Canceled.");
-   }
-}
+      </script>
+ @endif
 
-
-</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script  type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script>
