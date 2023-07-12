@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ExcelCSVController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +40,11 @@ Route::view('/register_user', "register_user");
 Route::view('/register_compartment', "register_compartment");
 Route::view('/register_consignment', "register_consignment");
 Route::view('/register_vendors', "register_vendors");
-
+Route::view('/importVendors', "importVendors");
+Route::view('/importCategory', "importCategory");
+Route::view('/importCompartment', "importCompartment");
+Route::view('/importConsignment', "importConsignment");
+Route::view('/importItem', "importItem");
 //security route
 Route::get('logmeout','App\Http\Controllers\adminlogin@logout');
 
@@ -89,3 +93,12 @@ Route::post('item_cart', 'App\Http\Controllers\borrow_user_cart@addToCart');
 //returning the borrowed items
 Route::post('returnOrder', 'App\Http\Controllers\borrow_user_cart@complete_order');
 Route::post('returnItems', 'App\Http\Controllers\return_items@return_items');
+
+//IMPORT FUNCTION.
+
+Route::get('/excel-csv', [ExcelCSVController::class, 'index'])->name('excel-csv.index');
+Route::post('/excel-csv/import-items', [ExcelCSVController::class, 'importItems']);
+Route::post('/excel-csv/import-vendors', [ExcelCSVController::class, 'importVendors']);
+Route::post('/excel-csv/import-consignments', [ExcelCSVController::class, 'importConsignments']);
+Route::post('/excel-csv/import-compartments', [ExcelCSVController::class, 'importCompartments']);
+Route::post('/excel-csv/import-categories', [ExcelCSVController::class, 'importCategories']);

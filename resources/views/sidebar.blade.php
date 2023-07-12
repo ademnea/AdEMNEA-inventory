@@ -11,11 +11,12 @@
     </head>
     <body>
 
-<div style="
-a:hover{
+    <style>
+a:hover {
    text-decoration: underline;
    text-decoration-color: red;
 }
+</style>
 ">
 <button data-drawer-target="separator-sidebar" data-drawer-toggle="separator-sidebar" aria-controls="separator-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm white-500 rounded-lg md:hidden  focus:outline-none focus:ring-2 focus:ring-gray-200 dark:white-400  dark:focus:ring-gray-600">
    <span class="sr-only">Open sidebar</span>

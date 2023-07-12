@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class consignments extends Model
 {   
     protected $table = 'Consignments';
+    protected $fillable = [
+            'vendor_id' ,
+            'DateBought' ,
+            'receiptNo',
+            'DateReceived', 
+            'receipt_image_url',
+    ];
+
     use HasFactory;
 }

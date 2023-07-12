@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class compartments extends Model
 {
     protected $table = 'Compartments';
+    protected $fillable = [
+        'number',
+        'description',
+    ];
     use HasFactory;
 }
