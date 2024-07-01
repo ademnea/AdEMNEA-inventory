@@ -9,7 +9,7 @@
 
 <section class="bg-gray-50 dark:bg-gray-900">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="/inventory/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
          <h1 style="font-size:30px;">AdEMNEA-Inventory</h1>
       </a>
 
@@ -60,13 +60,13 @@
                             <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                           </div>
                       </div>
-                      <a href="/inventory/forgot_password" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                      <a href="/forgot_password" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                   </div>
                   <button class="bg-green-500 text-white font-bold py-2 px-4 rounded-full w-full">
                               Login
                   </button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                <a href="/inventory/" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Homepage</a>
+                <a href="/" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Homepage</a>
                   </p>
               </form>
           </div>

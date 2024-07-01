@@ -95,7 +95,7 @@ margin-right:10%;
                               Submit
                   </button>
                   <p class="text-sm font-light text-gray-500 light:text-gray-400">
-                {{-- <a href="/inventory/" class="font-medium text-primary-600 hover:underline light:text-primary-500">Homepage</a> --}}
+                {{-- <a href="/" class="font-medium text-primary-600 hover:underline light:text-primary-500">Homepage</a> --}}
                   </p>
               </form>
           </div>
