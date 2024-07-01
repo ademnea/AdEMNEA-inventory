@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //page routes
 Route::view('/', "welcome");
-Route::view('/inventory/login', "login")->name('inventory_login');
+Route::view('/login', "login");
 Route::view('/dashboard', "dashboard");
 Route::view('/category', "category");
 Route::view('/items', "items");
