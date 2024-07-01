@@ -14,7 +14,7 @@
 
     </head>
     <body>
-   
+
    @include('navbar')
    @include('sidebar')
 
@@ -52,31 +52,31 @@ margin-right:10%;
                   </div>
 
                   {{-- category choosing --}}
-                    
+
                   <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select A Category</label>
                     <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
-                    @foreach ($categories as $categories )  
+                    @foreach ($categories as $categories )
                      <option value= "{{ $categories->category_id }}"> {{ $categories->category_name }} </option>
                     @endforeach
                     </select>
 
                      {{-- consignment choosing --}}
-                    
+
                   <label for="consignment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select A Receipt Number</label>
                     <select name="consignment" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
-                    @foreach ($consignments as $consignment )  
+                    @foreach ($consignments as $consignment )
                      <option value= "{{ $consignment->consignment_id }}"> {{ $consignment->receiptNo }} </option>
                     @endforeach
                     </select>
 
                      {{-- compartment choosing --}}
-                    
+
                   <label for="compartment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select A Comaprtment</label>
                     <select name="compartment" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                        {{-- we will use a loop from the database here --}}
-                    @foreach ($compartments as $compartment )  
+                    @foreach ($compartments as $compartment )
                      <option value= "{{ $compartment->compartment_id }}"> {{ $compartment->number }} </option>
                     @endforeach
                     </select>
@@ -95,13 +95,13 @@ margin-right:10%;
                               Submit
                   </button>
                   <p class="text-sm font-light text-gray-500 light:text-gray-400">
-                {{-- <a href="/" class="font-medium text-primary-600 hover:underline light:text-primary-500">Homepage</a> --}}
+                {{-- <a href="/inventory/" class="font-medium text-primary-600 hover:underline light:text-primary-500">Homepage</a> --}}
                   </p>
               </form>
           </div>
     </div>
-  
-   </div> 
+
+   </div>
 </div>
 
 <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>

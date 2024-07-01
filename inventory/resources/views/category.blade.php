@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.4/dist/tailwind.min.css">
     </head>
     <body>
-   
+
    @include('navbar')
    @include('sidebar')
 
@@ -21,9 +21,9 @@
          @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('success') }}</b>
-            </div> 
+            </div>
 
-        @elseif (session('updated')) 
+        @elseif (session('updated'))
              <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('updated') }}</b>
               </div>
@@ -32,7 +32,7 @@
 
 
 <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-<a href="/register_category">Add New Category</a>
+<a href="/inventory/register_category">Add New Category</a>
 </button>
 
 </center>
@@ -59,7 +59,7 @@ margin-right:10%;
                 <th scope="col" class="px-6 py-3">
                     Category name
                 </th>
-               
+
                 <th scope="col" class="px-6 py-3">
                     Description
                 </th>
@@ -67,7 +67,7 @@ margin-right:10%;
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
-                
+
             </tr>
         </thead>
         <tbody>
@@ -78,24 +78,24 @@ margin-right:10%;
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {{ $category->category_id }}
                 </td>
-          
 
-          
+
+
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {{ $category->category_name }}
                 </td>
-     
 
-     
+
+
                 <td scope="row" class="px-6 py-4">
                    {{ $category->description}}
                 </td>
-           
+
                   {{-- actions begin here --}}
-                 
+
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_category_form? id={{ $category->category_id}}&name={{ $category->category_name }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/inventory/edit_category_form? id={{ $category->category_id}}&name={{ $category->category_name }}&description={{ $category->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>
@@ -104,7 +104,7 @@ margin-right:10%;
         </tbody>
     </table>
 </div>
-   </div> 
+   </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

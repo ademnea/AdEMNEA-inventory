@@ -10,7 +10,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-   
+
    @include('navbar')
    @include('sidebar')
 
@@ -129,7 +129,7 @@
                 <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
                     <div class="py-5 border-b border-gray-200 dark:border-gray-700">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">AdEMNEA-inventory is an online stock, item and borrow management software.</p>
-                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-green-600 dark:text-green-500 hover:underline">get started</a> and start registering items and Lending them.</p>
+                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/inventory/docs/getting-started/introduction/" class="text-green-600 dark:text-green-500 hover:underline">get started</a> and start registering items and Lending them.</p>
                     </div>
                 </div>
                 <h2 id="accordion-flush-heading-2">

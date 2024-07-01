@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.4/dist/tailwind.min.css">
     </head>
     <body>
-   
+
    @include('navbar')
    @include('sidebar')
 
@@ -21,9 +21,9 @@
          @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('success') }}</b>
-            </div> 
+            </div>
 
-        @elseif (session('updated')) 
+        @elseif (session('updated'))
              <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <b> {{ session('updated') }}</b>
               </div>
@@ -59,7 +59,7 @@ margin-right:10%;
                 <th scope="col" class="px-6 py-3">
                     Vendor name
                 </th>
-               
+
                 <th scope="col" class="px-6 py-3">
                     Email
                 </th>
@@ -75,7 +75,7 @@ margin-right:10%;
                 <th scope="col" class="px-6 py-3">
                    Website
                 </th>
-                
+
                 <th scope="col" class="px-6 py-3">
                   Edit
                 </th>
@@ -89,15 +89,15 @@ margin-right:10%;
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {{ $vendor->vendor_id }}
                 </td>
-          
+
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {{ $vendor->name }}
                 </td>
-     
+
                 <td scope="row" class="px-6 py-4">
                    {{ $vendor->email}}
                 </td>
-           
+
                 <td scope="row" class="px-6 py-4">
                    {{ $vendor->phone}}
                 </td>
@@ -113,10 +113,10 @@ margin-right:10%;
                 </td>
 
                   {{-- edit begins here --}}
-                 
+
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&email={{ $vendor->email}}&phone={{ $vendor->phone}}&website={{ $vendor->website}}&location={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/inventory/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&email={{ $vendor->email}}&phone={{ $vendor->phone}}&website={{ $vendor->website}}&location={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>
@@ -125,7 +125,7 @@ margin-right:10%;
         </tbody>
     </table>
 </div>
-   </div> 
+   </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
