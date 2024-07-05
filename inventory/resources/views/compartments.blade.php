@@ -81,22 +81,22 @@ margin-right:10%;
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {{ $Compartments->compartment_id }}
+                   {{ $compartment->compartment_id }}
                 </td>
 
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {{ $Compartments->number }}
+                   {{ $compartment->number }}
                 </td>
 
                 <td scope="row" class="px-6 py-4">
-                   {{ $Compartments->description}}
+                   {{ $compartment->description}}
                 </td>
 
                   {{-- actions begin here --}}
 
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_compartment_form? id={{ $Compartments->compartment_id}}&name={{ $Compartments->number }}&description={{ $Compartments->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/inventory/edit_compartment_form? id={{ $compartment->compartment_id}}&name={{ $compartment->number }}&description={{ $compartment->description}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>
