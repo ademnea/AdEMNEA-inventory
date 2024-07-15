@@ -39,6 +39,8 @@ if(is_null($id1) && is_null($id2)){
     $lastname= $user->lastname;
     Session::put('user',$userid);
     Session::put('username',$lastname);
+    Session::put('form_submitted', true); // Set the session variable
+    
 
 
    return redirect('/borrows')->with('success','user added for borrowing');
@@ -183,5 +185,13 @@ return redirect('/borrows')->with('success', 'item added to cart successfully!')
         return view('/return_items',compact('results','items'));
 
     }
+    public function processed_cart(Request $request)
+    {
+        // Change form_submitted to false
+        session()->put('form_submitted', false);
 
+        // Redirect to the borrows page
+        return redirect('/borrows');
+    }
+    
 }

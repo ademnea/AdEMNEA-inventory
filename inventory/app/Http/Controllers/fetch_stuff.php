@@ -116,9 +116,10 @@ class fetch_stuff extends Controller
         $categories = category::all();
         $trackableitems = trackableitems::all();
         $generalitems= item::all();
+        $users= users::all();
 
 
-        return view('/borrows',compact('categories','generalitems','trackableitems'));
+        return view('/borrows',compact('categories','generalitems','trackableitems','users'));
 
        }
 

@@ -10,4 +10,12 @@ class item extends Model
 
     protected $table = 'GeneralItems';
     use HasFactory;
+    protected $fillable = [
+        'category_id',
+        'compartment_id',
+        'name',
+        'Type',
+        'Quantity',
+        'consignment_id'
+    ];
 }

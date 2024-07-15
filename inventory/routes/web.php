@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CSVController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,8 +84,12 @@ Route::post('/deletefromcart', 'App\Http\Controllers\borrow_user_cart@delete_fro
 
 //cotrollers for borrowing purposes.
 Route::post('user_cart', 'App\Http\Controllers\borrow_user_cart@addToCart');
+Route::get('processed_cart', 'App\Http\Controllers\borrow_user_cart@processed_cart')->name('processed_cart');
 Route::post('item_cart', 'App\Http\Controllers\borrow_user_cart@addToCart');
 
 //returning the borrowed items
 Route::post('returnOrder', 'App\Http\Controllers\borrow_user_cart@complete_order');
 Route::post('returnItems', 'App\Http\Controllers\return_items@return_items');
+
+//routes for uploading the csv
+Route::post('/upload-csv', [CSVController::class, 'upload'])->name('uploadCSV');

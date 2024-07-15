@@ -98,7 +98,7 @@ public function edit_user(Request $request)
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'email' => $request->input('email'),
-            'phone_number' => $request->input('phone'),
+            'phone' => $request->input('phone'),
             // add more fields as needed
         ]);
     return redirect('/users')->with('updated', 'changes have been made successfully!');

@@ -55,6 +55,35 @@ margin-left:10%;
 margin-right:10%;
 ">
 
+<form method="post" action="user_cart" id="lend-form" style="{{ session('form_submitted') ? 'display:none;' : '' }}">
+    @csrf
+    <label for="users" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the User borrowing the item</label>
+    <select name="user" id="user" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+        {{-- Loop through the users data --}}
+        @foreach ($users as $user)
+            <option value="{{ $user->user_id }}">{{ $user->firstname }}</option>
+        @endforeach
+    </select>
+    <button type="submit" class="text-white bg-orange-700 hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-orange-600 dark:hover:bg-green-700 dark:focus:ring-orange-800">
+        Lend Items
+    </button>
+</form>
+<script>
+    document.getElementById('lend-form').addEventListener('submit', function(event) {
+        // Prevent the form from submitting immediately
+        event.preventDefault();
+        
+        // Hide the dropdown and button
+        document.getElementById('user').style.display = 'none';
+        this.querySelector('button[type="submit"]').style.display = 'none';
+
+
+        this.submit();
+    });
+</script>
+
+<br>
+<br>
 <h5><b>CHOOSE ITEMS TO LEND</b></h5>
 <br>
 <div class="relative overflow-x-auto">

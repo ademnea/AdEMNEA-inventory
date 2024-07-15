@@ -30,8 +30,8 @@ class checkout extends Controller
   $picname = $request->file('image')->getClientOriginalName();
   $request->image->move(public_path('images/borrowing'), $picname);
 
+  $user = null;
 
-   $user = null;
    // lets get the user from the array
    foreach ($products as $productData) {
     
@@ -51,7 +51,7 @@ class checkout extends Controller
     $mydata->save();
 
  //first querry the orders table for the most recent order to attach these products.
-  $lastOrderId = DB::table('borrow')->latest()->value('borrow_id');
+  $lastOrderId = DB::table('Borrow')->latest()->value('borrow_id');
 
   // process each product in the cart
   foreach ($products as $productData) {
@@ -89,7 +89,7 @@ class checkout extends Controller
      $generalItem->save();
 
      //lets now query the previous balance before updating with the new quantity.
-         $quantity_in_stock = DB::table('generalitems')
+         $quantity_in_stock = DB::table('GeneralItems')
                 ->select('quantity')
                 ->where('item_id', $id)
                 ->value('quantity');
@@ -97,7 +97,7 @@ class checkout extends Controller
           $new_quantity = $quantity_in_stock - $quantity;
 
           //lets now update the stock
-          DB::table('generalitems')
+          DB::table('GeneralItems')
             ->where('item_id', $id)
             ->update(['quantity' => $new_quantity]);
  }
