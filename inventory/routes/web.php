@@ -26,6 +26,8 @@ Route::view('/orders', "orders");
 Route::view('/compartments', "compartments");
 Route::view('/consignments', "consignments");
 Route::view('/cart', "cart");
+Route::view('/help', "help");
+
 
 //multiple name routes
 Route::view('/edit_category_form', "edit_category_form");
