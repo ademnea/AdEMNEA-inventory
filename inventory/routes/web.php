@@ -27,6 +27,8 @@ Route::view('/compartments', "compartments");
 Route::view('/consignments', "consignments");
 Route::view('/cart', "cart");
 Route::view('/help', "help");
+Route::view('/about', "about");
+Route::view('/components', "components");
 
 
 //multiple name routes
@@ -82,6 +84,8 @@ Route::get('/deleteuser', 'App\Http\Controllers\edit_content@delete_user');
 Route::post('/editstorage', 'App\Http\Controllers\edit_content@edit_compartment');
 Route::post('/editorder', 'App\Http\Controllers\edit_content@edit_consignment');
 Route::post('/deletefromcart', 'App\Http\Controllers\borrow_user_cart@delete_from_cart');
+Route::post('table_facts', 'App\Http\Controllers\fetch_stuff@fetch_table_summary');
+Route::post('report_analysis', 'App\Http\Controllers\reports@report_analysis');
 
 
 //cotrollers for borrowing purposes.

@@ -144,7 +144,22 @@ class fetch_stuff extends Controller
         return view('/orders',compact('orders'));
 
        }
+       public function fetch_table_summary()
+    {
+        $categories = item::all();
 
+        // Calculate total quantity
+        $totalQuantity = $categories->sum('Quantity');
+
+        // Find the category with the highest quantity
+        $mostAvailableCategory = $categories->sortByDesc('Quantity')->first();
+
+        // Get the first three categories
+        $firstThreeCategories = $categories->take(3);
+
+        return view('data_tables', compact('categories', 'totalQuantity', 'mostAvailableCategory', 'firstThreeCategories'));
+    }
+    
 }
 
 
