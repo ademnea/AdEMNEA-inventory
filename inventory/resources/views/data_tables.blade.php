@@ -120,9 +120,12 @@
     </div>
 
     <div class="info-box">
+    @if($mostAvailableCategory)
         <h2>Most Available Item: {{ $mostAvailableCategory->name }} (Quantity: {{ $mostAvailableCategory->quantity }})</h2>
-    </div>
-
+    @else
+        <h2>No available item data.</h2>
+    @endif
+</div>
     <div class="table-container">
         <table>
             <thead>
