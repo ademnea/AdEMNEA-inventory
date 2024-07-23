@@ -220,7 +220,7 @@
             </div>
 
             <div class="component-card">
-                <img src="{{ asset('storage/table.png') }}" alt="table" class="table">
+                <img src="{{ asset('storage/tables.jpeg') }}" alt="table" class="table">
                 <h3>Data Tables</h3>
                 <p>Shows a summary of the different items in the Inventory</p>
                 <form method="post" action="table_facts">
