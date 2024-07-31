@@ -111,7 +111,7 @@ margin-right:10%;
 
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_consignment_form? id={{ $consignment->consignment_id}}&receiptNo={{ $consignment->receiptNo }}&dateBought={{ $consignment->DateBought }}&dateReceived={{ $consignment->DateReceived }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/inventory/edit_consignment_form? id={{ $consignment->consignment_id}}&receiptNo={{ $consignment->receiptNo }}&dateBought={{ $consignment->DateBought }}&dateReceived={{ $consignment->DateReceived }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>
