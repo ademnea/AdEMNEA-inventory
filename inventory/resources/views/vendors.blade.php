@@ -116,7 +116,7 @@ margin-right:10%;
 
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&email={{ $vendor->email}}&phone={{ $vendor->phone}}&website={{ $vendor->website}}&location={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                       <a href="/inventory/edit_vendor_form? id={{ $vendor->id}}&name={{ $vendor->name }}&email={{ $vendor->email}}&phone={{ $vendor->phone}}&website={{ $vendor->website}}&location={{ $vendor->location}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                          Edit
                        </a>
                 </td>

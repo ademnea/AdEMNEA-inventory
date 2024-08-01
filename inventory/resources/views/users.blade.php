@@ -115,7 +115,7 @@ margin-right:10%;
                  {{-- first action to edit user --}}
                   <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                       <a href="/edit_user_form? id={{ $user->user_id}}&firstname={{ $user->firstname }}&lastname={{ $user->lastname}}&email={{ $user->email}}&phone={{ $user->phone}}">
+                       <a href="/inventory/edit_user_form? id={{ $user->user_id}}&firstname={{ $user->firstname }}&lastname={{ $user->lastname}}&email={{ $user->email}}&phone={{ $user->phone}}">
                       
                        <a href="/inventory/edit_user_form? id={{ $user->user_id}}&firstname={{ $user->firstname }}&lastname={{ $user->lastname}}&email={{ $user->email}}&phone={{ $user->phone}}"> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
